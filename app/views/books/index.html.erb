@@ -1,3 +1,12 @@
+<% if @book.errors.any? %>
+    <h5><div class="er"><%= @book.errors.count %> errors prohibited this book from being saved:</div></h5>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><div class="er"><%= message %></div></li>
+      <% end %>
+    </ul>
+<% end %>
+
  <h1>Books</h1>
   <table>
     <thead>
@@ -23,4 +32,5 @@
     </tbody>
   </table>
 
+<% @user = current_user %>
 <%= render 'users/list', user: @user, book: @book %>
