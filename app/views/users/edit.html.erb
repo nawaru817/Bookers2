@@ -7,14 +7,21 @@
     </ul>
 <% end %>
 
-<h1>User info</h1>
-<%= form_with model:@user, url:"/users/#{@user.id}", local:true do |f| %>
-  <label for="inputName">Name</label><br>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %><br>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <label for="inputImage">Image</label><br>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %><br>
-  <label>Introduction</label><br>
-  <%= f.text_area :introduction, autofocus: true, id:"inputText" %><br>
-  <%= f.submit "Update User" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <h1>User info</h1>
+      <%= form_with model:@user, url:"/users/#{@user.id}", local:true do |f| %>
+        <label for="inputName">Name</label><br>
+        <p><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %></p>
+        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+        <label for="inputImage">Image</label><br>
+        <p><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></p>
+        <label>Introduction</label><br>
+        <%= f.text_area :introduction, autofocus: true, id:"inputText" %><br>
+        <%= f.submit "Update User" %>
+      <% end %>
+    </div>
+  </div>
+</div>
